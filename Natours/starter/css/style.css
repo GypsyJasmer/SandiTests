@@ -1,0 +1,205 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/*Universal Reset, makes all browser set up with our code instead of browsers' default settings. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+/*********************************************
+HEADER
+*************************************************/
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 131, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+}
+
+/*puts the logo where we want it*/
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+/*puts the text in it's own element where we want it*/
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/*all text in text box formates*/
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+/*seperated the OUTDOOR from the rest of text*/
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+
+  /*help clean the animation bump*/
+  backface-visibility: hidden;
+
+  /*ties our animation to the specific item*/
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+
+  /*animation-delay: 3s;
+  just to show the additional animation options*/
+}
+
+/*seperated the second set of text from the rest of text*/
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  /*short hand fo animation same as above. */
+  animation: moveInRight 2s ease-out;
+}
+
+/*Text animation, 0% is start 100% is end rest is the transition
+for browser performance it's best to animate two properties, opacity & transform. 
+That is what the browser are optimized for.
+X and Y access*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/*Button link sudo class, special states of the button selector. Used when the anchor is a link*/
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  /* this allows the after position to be hidden behind the button because otherwise the position is taken from the header relative */
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /*X Y blur*/
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/*When element is clicked is active
+when clicked it does a little bump up*/
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/*Looks like the button we already have but put behind the button and create hover animation after clicked.
+Hidden sudo element, treated like a child of the button the 100% is in refernce of the button alone, 100% of the button size. */
+.btn::after {
+  /* have to specify the content property even if it is empty because otherwise it will not apper */
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Defines the position of elements if they are on top of each other */
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+/* after sudo element for after hovering over the button */
+.btn:hover::after {
+  transform: scale(1.5);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* Automatically applies the styles of the 0% before the animation starts */
+  animation-fill-mode: backwards;
+}
