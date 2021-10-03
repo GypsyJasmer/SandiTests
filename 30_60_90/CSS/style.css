@@ -1,0 +1,139 @@
+/*
+COLORS:
+
+flamingo pink #fc8eac
+ rgba(252, 142, 172);
+
+*/
+
+/*Universal Reset, makes all browser set up with our code instead of browsers' default settings. */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* 10/16 is .625 the 16 is the defult browser font and so we want 10px but in % if the user has overridden font size so that is the math we do.  */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+/*********************************************
+HEADER
+*************************************************/
+.header {
+  height: 95vh;
+  background-color: rgba(252, 142, 172);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+
+.headerFront {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+}
+
+/*puts the text in it's own element where we want it*/
+.text-box {
+  background-color: rgba(232, 232, 232, 1);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/*all text in text box formates*/
+.heading-primary {
+  color: rgba(46, 49, 49);
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+}
+
+/*seperated the OUTDOOR from the rest of text*/
+.heading-primary-main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+
+  /*help clean the animation bump*/
+  backface-visibility: hidden;
+
+  /*ties our animation to the specific item*/
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+
+  /*animation-delay: 3s;
+    just to show the additional animation options*/
+}
+
+/*seperated the second set of text from the rest of text*/
+.heading-primary-second {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+
+  /*short hand fo animation same as above. */
+  animation: moveInRight 2s ease-out;
+}
+
+/*Text animation, 0% is start 100% is end rest is the transition
+  for browser performance it's best to animate two properties, opacity & transform. 
+  That is what the browser are optimized for.
+  X and Y access*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

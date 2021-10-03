@@ -1,0 +1,75 @@
+/*
+COLORS:
+
+flamingo pink #fc8eac
+ rgba(252, 142, 172);
+
+*/
+/*Universal Reset, makes all browser set up with our code instead of browsers' default settings. */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* 10/16 is .625 the 16 is the defult browser font and so we want 10px but in % if the user has overridden font size so that is the math we do.  */
+  font-size: 62.5%;
+}
+
+body {
+  margin: auto;
+  padding: 0;
+  background: url(../img/yena-kwon-Xibs2fJ5bg4-unsplash.jpg) no-repeat;
+  background-size: cover;
+}
+
+.topBox {
+  width: 45rem;
+  background: rgba(252, 142, 172, 0.9);
+  padding: 4rem;
+  text-align: center;
+  /* border-radius: 2rem; */
+  margin: auto;
+  margin-top: 5%;
+  /* font-family:; */
+}
+.box-img {
+  border-radius: 50%;
+  width: 20rem;
+  height: 20rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+
+.topBox h1 {
+  font-size: 4rem;
+  letter-spacing: 0.4rem;
+  font-weight: 100;
+}
+
+.topBox h5 {
+  font-size: 2.5rem;
+  letter-spacing: 0.3rem;
+  font-weight: 100;
+}
+
+.topBox p {
+  text-align: justify;
+}
+
+.flex-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 30rem;
+  height: 10rem;
+  background-color: rgba(252, 142, 172, 0.9);
+  margin: 2rem;
+  padding: 2rem;
+}
