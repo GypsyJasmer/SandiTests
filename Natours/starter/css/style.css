@@ -49,18 +49,18 @@ HEADER
 }
 
 /*puts the logo where we want it*/
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
 /*puts the text in it's own element where we want it*/
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -76,7 +76,7 @@ HEADER
 }
 
 /*seperated the OUTDOOR from the rest of text*/
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -95,7 +95,7 @@ HEADER
 }
 
 /*seperated the second set of text from the rest of text*/
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -176,7 +176,7 @@ when clicked it does a little bump up*/
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -198,7 +198,7 @@ Hidden sudo element, treated like a child of the button the 100% is in refernce 
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -208,7 +208,7 @@ Hidden sudo element, treated like a child of the button the 100% is in refernce 
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   /* Automatically applies the styles of the 0% before the animation starts */
   animation-fill-mode: backwards;

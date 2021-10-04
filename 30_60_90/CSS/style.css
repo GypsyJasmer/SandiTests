@@ -39,18 +39,31 @@ HEADER
   background-size: cover;
   background-position: top;
   position: relative;
+  z-index: 1;
 }
 
-.headerFront {
+#img {
   width: 100%;
   height: 100%;
-  clip-path: polygon(0 0, 0% 100%, 100% 0);
+  background: url(../img/noTYvm.jpg) no-repeat center;
+  background-size: cover;
+  clip-path: polygon(0 0, 0 100%, 100% 0);
+  z-index: 2;
+  position: absolute;
 }
 
+/* .header__front {
+  clip-path: polygon(0 0, 0 100%, 100% 0);
+  z-index: 2;
+  position: relative;
+  
+} */
+
 /*puts the text in it's own element where we want it*/
-.text-box {
-  background-color: rgba(232, 232, 232, 1);
+.header__text-box {
+  background-color: rgb(29, 29, 29);
   position: absolute;
+  z-index: 3;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -59,13 +72,13 @@ HEADER
 
 /*all text in text box formates*/
 .heading-primary {
-  color: rgba(46, 49, 49);
+  color: lightgrey;
   text-transform: uppercase;
   margin-bottom: 6rem;
 }
 
 /*seperated the OUTDOOR from the rest of text*/
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -84,7 +97,7 @@ HEADER
 }
 
 /*seperated the second set of text from the rest of text*/
-.heading-primary-second {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -136,4 +149,19 @@ HEADER
     opacity: 1;
     transform: translate(0);
   }
+}
+
+.elementTwo {
+  background-color: khaki;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+/* ***************************************
+FOOTER 
+*****************************/
+footer {
+  background-color: rgba(252, 142, 172);
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
 }
